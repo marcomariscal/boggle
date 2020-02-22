@@ -1,0 +1,9 @@
+#board {
+  font-size: 50px;
+  border-spacing: 1rem;
+  font-family: "Fira Code";
+}
+
+#timer {
+  background-color: yellow;
+}

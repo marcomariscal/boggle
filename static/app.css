@@ -1,3 +1,7 @@
+p {
+  font-size: 30px;
+}
+
 #board {
   font-size: 50px;
   border-spacing: 1rem;
@@ -5,5 +9,5 @@
 }
 
 #timer {
-  background-color: yellow;
+  color: rgb(65, 105, 4);
 }

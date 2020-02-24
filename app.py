@@ -16,6 +16,8 @@ BOARD_KEY = 'board'
 def start():
     """Render board."""
     session[BOARD_KEY] = boggle_game.make_board()
+    highscore = session.get('highscore', 0)
+    plays = session.get('plays', 0)
 
     return render_template('board.html', board=session[BOARD_KEY]) 
 
@@ -34,10 +36,11 @@ def best_score():
     """Get the score from the front end and return the highest score and the number of plays in the response."""
     score = request.json["score"]
     highscore = session.get('highscore', 0)
-    session['highscore'] = max(highscore, score)
     plays = session.get('plays', 0)
-    plays += 1
 
-    score_result = {"highscore": session['highscore'], "plays": plays }
+    session['highscore'] = max(highscore, score)
+    session['plays'] = plays + 1
+
+    score_result = {"highscore": session['highscore'], "plays": session['plays']}
 
     return jsonify(score_result) 

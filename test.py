@@ -23,9 +23,9 @@ class FlaskTests(TestCase):
         """Check if the word is valid."""
         with self.client as client: 
             with client.session_transaction() as sess:
-                sess["board"] = [['m', 'i', 'c', 'e', 'e'],['n', 'i', 'c', 'e', 'e'],['n', 'i', 'c', 'e', 'e'],['n', 'i', 'c', 'e', 'e'],['n', 'i', 'c', 'e', 'e']]
+                sess["board"] = [['M', 'A', 'C', 'C', 'C'],['M', 'A', 'C', 'C', 'C'],['M', 'A', 'C', 'C', 'C'],['M', 'A', 'C', 'C', 'C'],['M', 'A', 'C', 'C', 'C']]
 
-        response = self.client.get('/guess?guess=mi')
+        response = self.client.get('/guess?guess=mac')
         self.assertEqual(response.json['result'], 'ok')
 
     def test_invalid_word(self):
